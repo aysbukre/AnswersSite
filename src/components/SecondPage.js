@@ -5,7 +5,8 @@ import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { imageArray } from '../imageUtils'; // Import the dynamically loaded images
+import { imageArray } from '../imageUtils';
+import { sentences } from '../sentences'; // Import the sentences
 
 const shuffleArray = (array) => {
     let currentIndex = array.length, randomIndex;
@@ -94,7 +95,9 @@ function SecondPage() {
     }, []);
 
     const handleClick = () => {
-        navigate('/answer');
+        // Randomly select a sentence
+        const randomSentence = sentences[Math.floor(Math.random() * sentences.length)];
+        navigate('/answer', { state: { sentence: randomSentence } });
     };
 
     return (
@@ -110,7 +113,6 @@ function SecondPage() {
             textAlign: 'center',
             color: 'white',
         }}>
-
             <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '60%', height: '88%' }}>
                 {shuffledImages.map((image) => (
                     <ImageButton onClick={handleClick}
@@ -141,7 +143,6 @@ function SecondPage() {
                     </ImageButton>
                 ))}
             </Box>
-
         </div>
     );
 }

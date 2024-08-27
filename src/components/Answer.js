@@ -1,8 +1,10 @@
 import React from 'react';
-import seaImage from '../images/sea.png'
+import { useLocation } from 'react-router-dom';
+import seaImage from '../images/sea.png';
 
 const Answer = () => {
-
+    const location = useLocation();
+    const sentence = location.state?.sentence || "Cümle bulunamadı."; // Default text if no sentence is found
 
     return (
         <div className="answer" style={{
@@ -17,8 +19,7 @@ const Answer = () => {
             textAlign: 'center',
             color: 'white',
         }}>
-            <h1>Bu sorunun cevabı  kalbinde.</h1>
-
+            <h1>{sentence}</h1>
         </div>
     );
 };
