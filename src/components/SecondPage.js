@@ -1,33 +1,23 @@
-import React from 'react'
-import seaImage from '../images/sea.png'
-import './ComplexButton'
+import React, { useEffect, useState } from 'react';
+import seaImage from '../images/sea.png';
 import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
-import image1 from '../images/aslan.png';
-import image2 from '../images/balık.png';
-import image3 from '../images/kaplan.png';
 import { useNavigate } from 'react-router-dom';
-import './Answer'
-const images = [
-    {
-        url: image1,
-        title: 'Aslan',
-        width: '30%',
-    },
-    {
-        url: image2,
-        title: 'Balık',
-        width: '30%',
-    },
-    {
-        url: image3,
-        title: 'Kaplan',
-        width: '30%'
+import { imageArray } from '../imageUtils'; // Import the dynamically loaded images
 
-    },
-];
+const shuffleArray = (array) => {
+    let currentIndex = array.length, randomIndex;
+
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+};
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
@@ -96,6 +86,12 @@ const ImageMarked = styled('span')(({ theme }) => ({
 
 function SecondPage() {
     const navigate = useNavigate();
+    const [shuffledImages, setShuffledImages] = useState([]);
+
+    useEffect(() => {
+        const shuffled = shuffleArray([...imageArray]);
+        setShuffledImages(shuffled.slice(0, 3)); // Shuffle and take only the first 3 images
+    }, []);
 
     const handleClick = () => {
         navigate('/answer');
@@ -116,7 +112,7 @@ function SecondPage() {
         }}>
 
             <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '60%', height: '88%' }}>
-                {images.map((image) => (
+                {shuffledImages.map((image) => (
                     <ImageButton onClick={handleClick}
                         focusRipple
                         key={image.title}
@@ -150,4 +146,4 @@ function SecondPage() {
     );
 }
 
-export default SecondPage
+export default SecondPage;
