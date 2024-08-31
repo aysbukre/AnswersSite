@@ -3,28 +3,6 @@ import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
-import image1 from '../images/aslan.png';
-import image2 from '../images/balık.png';
-import image3 from '../images/kaplan.png';
-
-const images = [
-    {
-        url: image1,
-        title: 'Aslan',
-        width: '30%',
-    },
-    {
-        url: image2,
-        title: 'Balık',
-        width: '30%',
-    },
-    {
-        url: image3,
-        title: 'Kaplan',
-        width: '30%'
-
-    },
-];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
@@ -43,7 +21,7 @@ const ImageButton = styled(ButtonBase)(({ theme }) => ({
             opacity: 0,
         },
         '& .MuiTypography-root': {
-            border: '4px solid currentColor',
+            border: '1px solid currentColor',
         },
     },
 }));
@@ -83,7 +61,7 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
 
 const ImageMarked = styled('span')(({ theme }) => ({
     height: 3,
-    width: 18,
+    width: 1,
     backgroundColor: theme.palette.common.white,
     position: 'absolute',
     bottom: -2,

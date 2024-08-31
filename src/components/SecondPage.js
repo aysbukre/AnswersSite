@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import seaImage from '../images/sea.png';
+import seaImage from '../images/bgImages/sea.png';
 import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
@@ -124,10 +124,10 @@ function SecondPage() {
                     >
                         <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
                         <ImageBackdrop className="MuiImageBackdrop-root" />
-                        <Image>
+                        {/*<Image>
                             <Typography
                                 component="span"
-                                variant="subtitle1"
+                                //variant="subtitle1"
                                 color="inherit"
                                 sx={{
                                     position: 'relative',
@@ -136,10 +136,9 @@ function SecondPage() {
                                     pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
                                 }}
                             >
-                                {image.title}
                                 <ImageMarked className="MuiImageMarked-root" />
                             </Typography>
-                        </Image>
+                        </Image>*/}
                     </ImageButton>
                 ))}
             </Box>

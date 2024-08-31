@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import seaImage from '../images/sea.png';
+import seaImage from '../images/bgImages/sea.png';
 
 const Answer = () => {
     const location = useLocation();
@@ -19,7 +19,7 @@ const Answer = () => {
             textAlign: 'center',
             color: 'white',
         }}>
-            <h1>{sentence}</h1>
+            <h3>{sentence}</h3>
         </div>
     );
 };
