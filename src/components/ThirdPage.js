@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import seaImage from '../images/bgImages/sea.png';
 import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
+import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { imageArray } from '../imageUtils';
-import numbers from '../numbers';
+import { numberArray } from '../numberUtils';
+import { sentences } from '../sentences';
 
 const shuffleArray = (array) => {
     let currentIndex = array.length, randomIndex;
@@ -89,13 +90,14 @@ function SecondPage() {
     const [shuffledImages, setShuffledImages] = useState([]);
 
     useEffect(() => {
-        const shuffled = shuffleArray([...imageArray]);
-        setShuffledImages(shuffled.slice(0, 3));
+        const shuffled = shuffleArray([...numberArray]);
+        setShuffledImages(shuffled.slice(0, 3)); // Shuffle and take only the first 3 images
     }, []);
 
     const handleClick = () => {
-        const randomnumber = numbers[Math.floor(Math.random() * numbers.length)];
-        navigate('/ThirdPage', { state: { number: randomnumber } });
+        // Randomly select a sentence
+        const randomSentence = sentences[Math.floor(Math.random() * sentences.length)];
+        navigate('/answer', { state: { sentence: randomSentence } });
     };
 
     return (

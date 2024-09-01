@@ -29,8 +29,12 @@ const Home = () => {
             <p style={{ fontStyle: 'italic', margin: '10px 0' }}>
                 Soracağınız soruya on-on beş saniye boyunca yoğunlaşın.
             </p>
+
             <p style={{ fontStyle: 'italic', margin: '10px 0' }}>
                 Sorularınız açık ve net olmalıdır.
+            </p>
+            <p style={{ fontStyle: 'italic', fontSize: 22, margin: '10px 0' }}>
+                Enerjinizi en iyi yansıttığını düşündüğünüz kartı seçiniz.
             </p>
 
             <button onClick={handleClick} style={{

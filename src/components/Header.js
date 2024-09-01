@@ -4,7 +4,7 @@ import '../styles/Header.css'
 function Header() {
     return (
         <div className='header'>
-            <div className='title'> cevaplar sitesi</div>
+            <div className='title' style={{ fontStyle: 'italic' }}>  Cevaplar Sitesi</div>
 
         </div>
     )
