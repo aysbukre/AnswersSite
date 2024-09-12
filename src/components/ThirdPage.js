@@ -102,9 +102,6 @@ function SecondPage() {
 
     return (
         <div className='secondpage' style={{
-            backgroundImage: `url(${seaImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
             height: '100vh',
             display: 'flex',
             flexDirection: 'column',

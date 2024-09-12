@@ -14,11 +14,7 @@ const Home = () => {
     return (
 
         <div>
-             <video id="background-video" loop muted autoPlay>
-                <source src={backgroundVideo} type="video/mp4" />
-                <source src={backgroundVideo} type="video/ogg" />
-                Your browser does not support the video tag.
-            </video>
+            
         <div className="homepage" style={{
             height: '100vh',
             display: 'flex',

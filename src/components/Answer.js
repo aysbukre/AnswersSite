@@ -8,9 +8,6 @@ const Answer = () => {
 
     return (
         <div className="answer" style={{
-            backgroundImage: `url(${seaImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
             height: '100vh',
             display: 'flex',
             flexDirection: 'column',
@@ -19,7 +16,7 @@ const Answer = () => {
             textAlign: 'center',
             color: 'white',
         }}>
-            <h3>{sentence}</h3>
+            <h2>{sentence}</h2>
         </div>
     );
 };
