@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Home.css';
 import backgroundImage from '../images/bgImages/wallpaper.png';
+import backgroundVideo from '../images/videos/sea1.mp4';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -11,10 +12,14 @@ const Home = () => {
     };
 
     return (
+
+        <div>
+             <video id="background-video" loop muted autoPlay>
+                <source src={backgroundVideo} type="video/mp4" />
+                <source src={backgroundVideo} type="video/ogg" />
+                Your browser does not support the video tag.
+            </video>
         <div className="homepage" style={{
-            backgroundImage: `url(${backgroundImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
             height: '100vh',
             display: 'flex',
             flexDirection: 'column',
@@ -23,6 +28,9 @@ const Home = () => {
             textAlign: 'center',
             color: 'white',
         }}>
+
+           
+
             <p style={{ fontStyle: 'italic', fontWeight: 'bold', margin: '10px 0' }}>
                 Bu sitede tüm sorularınızın cevabını bulabilirsiniz.
             </p>
@@ -51,6 +59,8 @@ const Home = () => {
                 Hazırım
             </button>
         </div>
+        </div>
+
     );
 };
 

@@ -2,14 +2,12 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Answer from './components/Answer';
-import Header from './components/Header';
 import SecondPage from './components/SecondPage';
 import ThirdPage from './components/ThirdPage';
 
 function App() {
   return (
     <>
-      <Header />
       <div className="App">
         <BrowserRouter>
           <Routes>
