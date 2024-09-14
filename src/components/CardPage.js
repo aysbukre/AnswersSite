@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import seaImage from '../images/bgImages/sea.png';
 import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
-import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { numberArray } from '../numberUtils';
-import { sentences } from '../sentences';
+import { imageArray } from '../imageUtils';
+import backgroundVideo from '../images/videos/sea1.mp4';
+import numbers from '../numbers';
+
 
 const shuffleArray = (array) => {
     let currentIndex = array.length, randomIndex;
@@ -85,23 +86,22 @@ const ImageMarked = styled('span')(({ theme }) => ({
     transition: theme.transitions.create('opacity'),
 }));
 
-function SecondPage() {
+function CardPage() {
     const navigate = useNavigate();
     const [shuffledImages, setShuffledImages] = useState([]);
 
     useEffect(() => {
-        const shuffled = shuffleArray([...numberArray]);
-        setShuffledImages(shuffled.slice(0, 3)); // Shuffle and take only the first 3 images
+        const shuffled = shuffleArray([...imageArray]);
+        setShuffledImages(shuffled.slice(0, 3));
     }, []);
 
     const handleClick = () => {
-        // Randomly select a sentence
-        const randomSentence = sentences[Math.floor(Math.random() * sentences.length)];
-        navigate('/answer', { state: { sentence: randomSentence } });
+        const randomnumber = numbers[Math.floor(Math.random() * numbers.length)];
+        navigate('/numberPage', { state: { number: randomnumber } });
     };
 
     return (
-        <div className='secondpage' style={{
+        <div className='cardPage' style={{
             backgroundImage: `url(${seaImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -113,6 +113,18 @@ function SecondPage() {
             textAlign: 'center',
             color: 'white',
         }}>
+             <video id="background-video" loop muted autoPlay>
+                <source src={backgroundVideo} type="video/mp4" />
+                <source src={backgroundVideo} type="video/ogg" />
+                Your browser does not support the video tag.
+            </video>
+            <div  style={{ position: 'relative', bottom: '-10px' }}>
+            <p style={{ fontStyle: 'italic', fontWeight: 'bold', margin: '10px 0' }}>
+                HATIRLATMA  
+            </p>
+            <p style={{ fontStyle: 'italic', fontWeight: 'bold', margin: '10px 0' }}>
+            Enerjinizi en iyi yansıttığını düşündüğünüz kartı seçiniz.
+            </p></div>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '60%', height: '88%' }}>
                 {shuffledImages.map((image) => (
                     <ImageButton onClick={handleClick}
@@ -124,21 +136,7 @@ function SecondPage() {
                     >
                         <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
                         <ImageBackdrop className="MuiImageBackdrop-root" />
-                        {/*<Image>
-                            <Typography
-                                component="span"
-                                //variant="subtitle1"
-                                color="inherit"
-                                sx={{
-                                    position: 'relative',
-                                    p: 4,
-                                    pt: 2,
-                                    pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-                                }}
-                            >
-                                <ImageMarked className="MuiImageMarked-root" />
-                            </Typography>
-                        </Image>*/}
+                       
                     </ImageButton>
                 ))}
             </Box>
@@ -146,4 +144,4 @@ function SecondPage() {
     );
 }
 
-export default SecondPage;
+export default CardPage;

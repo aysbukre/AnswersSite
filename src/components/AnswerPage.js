@@ -1,14 +1,15 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import seaImage from '../images/bgImages/sea.png';
+import backgroundVideo from '../images/videos/sea1.mp4';
 
-const Answer = () => {
+
+const AnswerPage = () => {
     const location = useLocation();
     const sentence = location.state?.sentence || "Cümle bulunamadı."; // Default text if no sentence is found
 
     return (
-        <div className="answer" style={{
-            backgroundImage: `url(${seaImage})`,
+        
+        <div className="answerPage" style={{
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             height: '100vh',
@@ -19,9 +20,14 @@ const Answer = () => {
             textAlign: 'center',
             color: 'white',
         }}>
-            <h3>{sentence}</h3>
+        <video id="background-video" loop muted autoPlay>
+                <source src={backgroundVideo} type="video/mp4" />
+                <source src={backgroundVideo} type="video/ogg" />
+                Your browser does not support the video tag.
+            </video>    
+            <h3 style={{ zIndex: 1, position: 'relative' }}>{sentence}</h3>
         </div>
     );
 };
 
-export default Answer;
+export default AnswerPage;
