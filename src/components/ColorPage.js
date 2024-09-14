@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import seaImage from '../images/bgImages/sea.png';
 import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
 import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { imageArray } from '../imageUtils';
+import { colorArray } from '../colorUtils';
 import numbers from '../numbers';
 import backgroundVideo from '../images/videos/sea1.mp4';
 
@@ -53,17 +52,6 @@ const ImageSrc = styled('span')({
     backgroundPosition: 'center 40%',
 });
 
-const Image = styled('span')(({ theme }) => ({
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: theme.palette.common.white,
-}));
 
 const ImageBackdrop = styled('span')(({ theme }) => ({
     position: 'absolute',
@@ -76,22 +64,13 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
     transition: theme.transitions.create('opacity'),
 }));
 
-const ImageMarked = styled('span')(({ theme }) => ({
-    height: 3,
-    width: 18,
-    backgroundColor: theme.palette.common.white,
-    position: 'absolute',
-    bottom: -2,
-    left: 'calc(50% - 9px)',
-    transition: theme.transitions.create('opacity'),
-}));
 
 function ColorPage() {
     const navigate = useNavigate();
     const [shuffledImages, setShuffledImages] = useState([]);
 
     useEffect(() => {
-        const shuffled = shuffleArray([...imageArray]);
+        const shuffled = shuffleArray([...colorArray]);
         setShuffledImages(shuffled.slice(0, 3));
     }, []);
 
@@ -102,7 +81,6 @@ function ColorPage() {
 
     return (
         <div className='colorPage' style={{
-            backgroundImage: `url(${seaImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             height: '100vh',

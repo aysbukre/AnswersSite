@@ -9,7 +9,7 @@ const AnswerPage = () => {
 
     return (
         
-        <div className="answerPage" style={{
+        <div className="answer" style={{
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             height: '100vh',
