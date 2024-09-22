@@ -5,8 +5,9 @@ import backgroundVideo from '../images/videos/sea1.mp4';
 
 const AnswerPage = () => {
     const location = useLocation();
-    const sentence = location.state?.sentence || "Cümle bulunamadı."; // Default text if no sentence is found
+    const sentences = location.state?.sentences || "Cümle bulunamadı.";
 
+    console.log(sentences)
     return (
         
         <div className="answer" style={{
@@ -25,7 +26,7 @@ const AnswerPage = () => {
                 <source src={backgroundVideo} type="video/ogg" />
                 Your browser does not support the video tag.
             </video>    
-            <h3 style={{ zIndex: 1, position: 'relative' }}>{sentence}</h3>
+            <h3 style={{ zIndex: 1, position: 'relative' }}>{sentences}</h3>
         </div>
     );
 };

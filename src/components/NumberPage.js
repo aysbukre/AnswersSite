@@ -72,10 +72,9 @@ function NumberPage() {
         setShuffledImages(shuffled.slice(0, 3)); 
     }, []);
 
-    const handleClick = () => {
-        // Randomly select a sentence
-        const randomSentence = sentences[Math.floor(Math.random() * sentences.length)];
-        navigate('/colorPage', { state: { sentence: randomSentence } });
+    const handleClick = () => { 
+        const randomSentences = sentences[Math.floor(Math.random() * sentences.length)];
+        navigate('/colorPage', { state: { sentences: randomSentences } });
     };
 
     return (
@@ -95,6 +94,13 @@ function NumberPage() {
                 <source src={backgroundVideo} type="video/ogg" />
                 Your browser does not support the video tag.
             </video>
+             <div  style={{ position: 'relative', bottom: '-10px' }}>
+            <p style={{ fontStyle: 'italic', fontWeight: 'bold', margin: '10px 0' }}>
+                HATIRLATMA  
+            </p>
+            <p style={{ fontStyle: 'italic', fontWeight: 'bold', margin: '10px 0' }}>
+            Enerjinizi en iyi yansıttığını düşündüğünüz kartı seçiniz.
+            </p></div>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '60%', height: '88%' }}>
                 {shuffledImages.map((image) => (
                     <ImageButton onClick={handleClick}
@@ -105,22 +111,7 @@ function NumberPage() {
                         }}
                     >
                         <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
-                        <ImageBackdrop className="MuiImageBackdrop-root" />
-                        {/*<Image>
-                            <Typography
-                                component="span"
-                                //variant="subtitle1"
-                                color="inherit"
-                                sx={{
-                                    position: 'relative',
-                                    p: 4,
-                                    pt: 2,
-                                    pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-                                }}
-                            >
-                                <ImageMarked className="MuiImageMarked-root" />
-                            </Typography>
-                        </Image>*/}
+                        <ImageBackdrop className="MuiImageBackdrop-root" /> 
                     </ImageButton>
                 ))}
             </Box>

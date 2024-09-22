@@ -1,4 +1,3 @@
-// src/sentences.js
 export const numbers = [
     "1", "2"
 ]
