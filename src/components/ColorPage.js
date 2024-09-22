@@ -3,9 +3,8 @@ import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
 import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { colorArray } from '../colorUtils';
-import numbers from '../numbers';
 import backgroundVideo from '../images/videos/sea1.mp4';
+import { colorArray } from '../utils/colorUtils';
 
 
 const shuffleArray = (array) => {
@@ -73,12 +72,9 @@ function ColorPage() {
         const shuffled = shuffleArray([...colorArray]);
         setShuffledImages(shuffled.slice(0, 3));
     }, []);
-
     const handleClick = () => {
-        const randomnumber = numbers[Math.floor(Math.random() * numbers.length)];
-        navigate('/answerPage', { state: { number: randomnumber } });
-    };
-
+        navigate('/answerPage');
+    }; 
     return (
         <div className='colorPage' style={{
             backgroundSize: 'cover',

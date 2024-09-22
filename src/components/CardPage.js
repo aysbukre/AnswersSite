@@ -3,9 +3,9 @@ import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
 import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { imageArray } from '../imageUtils';
+import { imageArray } from '../utils/imageUtils';
 import backgroundVideo from '../images/videos/sea1.mp4';
-import numbers from '../numbers';
+import { numberArray } from '../utils/numberUtils';
 
 
 const shuffleArray = (array) => {
@@ -75,10 +75,9 @@ function CardPage() {
     }, []);
 
     const handleClick = () => {
-        const randomnumber = numbers[Math.floor(Math.random() * numbers.length)];
+        const randomnumber = numberArray[Math.floor(Math.random() * numberArray.length)];
         navigate('/numberPage', { state: { number: randomnumber } });
-    };
-
+    }; 
     return (
         <div className='cardPage' style={{
             backgroundSize: 'cover',
