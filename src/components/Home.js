@@ -1,14 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Home.css';
-import backgroundImage from '../images/bgImages/wallpaper.png';
+import '../styles/Home.css'; 
 import backgroundVideo from '../images/videos/sea1.mp4';
 
 const Home = () => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate('/secondPage');
+        navigate('/cardPage');
     };
 
     return (

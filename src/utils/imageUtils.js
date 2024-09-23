@@ -6,7 +6,7 @@ const importAll = (r) => {
     return images;
 };
 
-const images = importAll(require.context('./images/cardImages', false, /\.(png|jpe?g|svg)$/));
+const images = importAll(require.context('../images/cardImages', false, /\.(png|jpe?g|svg)$/));
 
 export const imageArray = Object.keys(images).map(key => ({
     url: images[key],
