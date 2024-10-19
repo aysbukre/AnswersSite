@@ -1,7 +1,15 @@
 import React from 'react';
 import backgroundVideo from '../images/videos/sea2.mp4';
+import { useNavigate } from 'react-router-dom';
+
 
 const VideoButton = () => {
+    const navigate = useNavigate(); 
+    const handleClick = () => {
+        navigate('/messagePage');
+    }; 
+
+
     return (
         <div style={{
             position: 'relative',
@@ -24,7 +32,7 @@ const VideoButton = () => {
                     zIndex: -1,
                 }}
             />
-            <button style={{
+            <button   onClick={handleClick} style={{
                 position: 'absolute', // Değişiklik burada
                 top: 0,
                 left: 0,
@@ -40,7 +48,7 @@ const VideoButton = () => {
                 zIndex: 1,
                 position: 'relative'
             }}>
-                Daha fazla cevap için çimen ablaya dfsdgsdfgdsfg
+                Eğer verilen cevap dileğinize uygunsa enerjinizi evrene göndermenin zamanı. Mesajınızı bir sonraki sayfaya bırakabilirsiniz. 
             </button>
         </div>
     );

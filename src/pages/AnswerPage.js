@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import backgroundVideo from '../images/videos/sea1.mp4';
 import sentences from '../sentences.js'; 
-import VideoButton from './VideoButton.js';
+import VideoButton from './../components/VideoButton.js';
 import { useNavigate } from 'react-router-dom';
 
 const AnswerPage = () => {

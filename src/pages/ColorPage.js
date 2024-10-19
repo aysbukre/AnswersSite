@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import backgroundVideo from '../images/videos/sea1.mp4';
 import { colorArray } from '../utils/colorUtils';
 
-
 const shuffleArray = (array) => {
     let currentIndex = array.length, randomIndex;
 
