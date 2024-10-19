@@ -2,13 +2,11 @@ import React from 'react';
 import backgroundVideo from '../images/videos/sea2.mp4';
 import { useNavigate } from 'react-router-dom';
 
-
 const VideoButton = () => {
     const navigate = useNavigate(); 
     const handleClick = () => {
         navigate('/messagePage');
     }; 
-
 
     return (
         <div style={{

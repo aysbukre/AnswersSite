@@ -1,23 +1,19 @@
-import React, { useState, useEffect } from 'react'; 
-import backgroundVideo from '../images/videos/sea1.mp4';
-
+import React, { useState, useEffect } from 'react';  
 const MessagePage = () => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
 
-  // Local storage'dan mesajları yükle
   useEffect(() => {
     const storedMessages = JSON.parse(localStorage.getItem('messages')) || [];
     setMessages(storedMessages);
   }, []);
-
-  // Mesaj gönderimi
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (message) {
       const updatedMessages = [...messages, message];
       setMessages(updatedMessages);
-      localStorage.setItem('messages', JSON.stringify(updatedMessages)); // Local storage'a kaydet
+      localStorage.setItem('messages', JSON.stringify(updatedMessages));  
       setMessage('');
     }
   };
@@ -31,31 +27,19 @@ const MessagePage = () => {
       alignItems: 'center',
       color: 'white',
       textAlign: 'center',
-      overflow: 'hidden', // Taşmayı engelle
+      overflow: 'hidden', 
     }}>
-      <video style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          zIndex: -1,
-      }} loop muted autoPlay>
-        <source src={backgroundVideo} type="video/mp4" />
-        <source src={backgroundVideo} type="video/ogg" />
-        Your browser does not support the video tag.
-      </video>
+       
       <div style={{
           zIndex: 1,
           padding: '40px',
           background: 'rgba(0, 0, 0, 0.5)',
           borderRadius: '10px',
-          width: '90%', // Genişliği %90 yap
-          maxWidth: '600px', // Maksimum genişliği 600px
+          width: '90%',  
+          maxWidth: '600px',  
           boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)',
-          overflowY: 'auto', // Taşan içeriği kaydır
-          maxHeight: '80vh' // Yüksekliği sınırlayın
+          overflowY: 'auto',  
+          maxHeight: '80vh' 
       }}>
         <h2>Mesaj Kutusu</h2>
         <form onSubmit={handleSubmit}>
@@ -64,12 +48,12 @@ const MessagePage = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Mesajınızı yazın"
-            style={{
-              width: '100%',
+            style={{ 
+              width: '96%',
               padding: '10px',
               borderRadius: '5px',
               border: '1px solid #ccc',
-              marginBottom: '10px'
+              marginBottom: '10px',    background: 'rgba(255, 255, 255, 0.2)'
             }}
           />
           <button type="submit" style={{
@@ -88,7 +72,7 @@ const MessagePage = () => {
           }}>Gönder</button>
         </form>
         <div>
-          <h3>Gönderilen Mesajlar:</h3>
+          <h3>Gönderdiğiniz Mesajlar</h3>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
             {messages.map((msg, index) => (
               <li key={index} style={{

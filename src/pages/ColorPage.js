@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
 import { Box } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import backgroundVideo from '../images/videos/sea1.mp4';
+import { useNavigate } from 'react-router-dom'; 
 import { colorArray } from '../utils/colorUtils';
 
 const shuffleArray = (array) => {
@@ -50,7 +49,6 @@ const ImageSrc = styled('span')({
     backgroundPosition: 'center 40%',
 });
 
-
 const ImageBackdrop = styled('span')(({ theme }) => ({
     position: 'absolute',
     left: 0,
@@ -61,7 +59,6 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
     opacity: 0.4,
     transition: theme.transitions.create('opacity'),
 }));
-
 
 function ColorPage() {
     const navigate = useNavigate();
@@ -86,11 +83,7 @@ function ColorPage() {
             textAlign: 'center',
             color: 'white',
         }}>
-             <video id="background-video" loop muted autoPlay>
-                <source src={backgroundVideo} type="video/mp4" />
-                <source src={backgroundVideo} type="video/ogg" />
-                Your browser does not support the video tag.
-            </video>
+              
             <div  style={{ position: 'relative', bottom: '-10px' }}>
             <p style={{ fontStyle: 'italic', fontWeight: 'bold', margin: '10px 0' }}>
                 HATIRLATMA  

@@ -3,8 +3,7 @@ import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
 import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { numberArray } from '../utils/numberUtils';
-import backgroundVideo from '../images/videos/sea1.mp4';
+import { numberArray } from '../utils/numberUtils'; 
 
 const shuffleArray = (array) => {
     let currentIndex = array.length, randomIndex;
@@ -14,7 +13,6 @@ const shuffleArray = (array) => {
         currentIndex--;
         [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
-
     return array;
 };
 
@@ -49,7 +47,6 @@ const ImageSrc = styled('span')({
     backgroundSize: 'cover',
     backgroundPosition: 'center 40%',
 });
- 
 
 const ImageBackdrop = styled('span')(({ theme }) => ({
     position: 'absolute',
@@ -86,13 +83,8 @@ function NumberPage() {
             justifyContent: 'center',
             textAlign: 'center',
             color: 'white',
-        }}>
-             <video id="background-video" loop muted autoPlay>
-                <source src={backgroundVideo} type="video/mp4" />
-                <source src={backgroundVideo} type="video/ogg" />
-                Your browser does not support the video tag.
-            </video>
-             <div  style={{ position: 'relative', bottom: '-10px' }}>
+        }}> 
+            <div  style={{ position: 'relative', bottom: '-10px' }}>
             <p style={{ fontStyle: 'italic', fontWeight: 'bold', margin: '10px 0' }}>
                 HATIRLATMA  
             </p>
